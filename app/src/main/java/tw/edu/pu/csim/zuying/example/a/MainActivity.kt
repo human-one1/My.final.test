@@ -3,7 +3,9 @@ package tw.edu.pu.csim.zuying.example.a
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +17,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.tooling.preview.Preview
@@ -55,9 +60,31 @@ fun Greeting(name: String) {
         }
 
     }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Canvas(
+            modifier = Modifier
+                .size(90.dp)
 
-
+        ) {
+            drawRect(
+                color = Color.Blue,
+                topLeft = Offset(-30f, -170f),
+                size = Size(40f, 40f)
+            )
+            drawRect(
+                color = Color.Blue,
+                topLeft = Offset(700f, 460f),
+                size = Size(40f, 40f)
+            )
+        }
+    }
 }
+
+
+
 
 @Preview(showBackground = true)
 @Composable
